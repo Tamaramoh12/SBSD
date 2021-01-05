@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Coming Soon</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/cooming/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/cooming/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/cooming/fonts/font-awesome-4.7.0//css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/cooming/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/cooming/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/cooming/vendor/countdowntime/flipclock.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/cooming/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/cooming/css/main.css">
+    <!--===============================================================================================-->
+</head>
+<body>
+
+    <!--coming soon-->
+    <div style="background-image: url('../../cooming/images/DryClean.jpeg');height:500px;text-align:center;padding:60px;">
+        <div>
+            <div  style="padding-bottom:30px;">
+                <a href="#">
+                    <h2 style="padding-bottom:10px;text-align:center;font-family:Courier New,Arial,Tahoma;font-weight:bold;color:black;font-size:90px">
+                        قريباً <br />
+                    </h2>
+                </a>
+
+                <h3 style="text-align:center;font-family:Courier New,Arial,Tahoma;font-weight:bold;color:black;font-size:90px">
+                    خدمة تنظيف الملابس
+                </h3>
+
+            </div>
+
+            <div class="cd100"></div>
+
+        </div>
+    </div>
+
+
+    <!--===============================================================================================-->
+    <script src="~/cooming/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/cooming/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/cooming/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/cooming/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/cooming/vendor/countdowntime/flipclock.min.js"></script>
+    <script src="~/cooming/vendor/countdowntime/moment.min.js"></script>
+    <script src="~/cooming/vendor/countdowntime/moment-timezone.min.js"></script>
+    <script src="~/cooming/vendor/countdowntime/moment-timezone-with-data.min.js"></script>
+    <script src="~/cooming/vendor/countdowntime/countdowntime.js"></script>
+    <script>
+        $('.cd100').countdown100({
+            /*Set Endtime here*/
+            /*Endtime must be > current time*/
+            endtimeYear: 0,
+            endtimeMonth: 0,
+            endtimeDate: 35,
+            endtimeHours: 18,
+            endtimeMinutes: 0,
+            endtimeSeconds: 0,
+            timeZone: ""
+            // ex:  timeZone: "America/New_York"
+            //go to " http://momentjs.com/timezone/ " to get timezone
+        });
+
+
+    </script>
+    <!--===============================================================================================-->
+    <script src="~/~/cooming/vendor/tilt/tilt.jquery.min.js"></script>
+    <script>
+        $('.js-tilt').tilt({
+            scale: 1.1
+        })
+    </script>
+    <!--===============================================================================================-->
+    <script src="~/js/main.js"></script>
+
+</body>
+</html>

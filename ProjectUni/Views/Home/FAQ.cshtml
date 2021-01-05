@@ -1,0 +1,276 @@
+﻿@{
+
+    Layout = null;
+
+}
+
+@using ProjectUni.Models
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>FAQ</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/images/logo-.jpeg" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/fonts/iconic/css/material-design-iconic-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/fonts/linearicons-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/slick/slick.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/MagnificPopup/magnific-popup.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/perfect-scrollbar/perfect-scrollbar.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/css/main.css">
+    <!--===============================================================================================-->
+    <style>
+        p, .p{
+            font-size:18px;
+            color:black;
+            text-align:right;
+            direction:rtl;
+        }
+        p span{
+            font-weight:bold;
+        }
+        .p{
+            padding-right:25px;
+        }
+        .ah a {
+            color: #481E57;
+            font-weight: bold;
+        }
+        .ah a:hover{
+            color:#808080;
+        }
+    </style>
+</head>
+
+<body class="animsition">
+
+
+    <!-- Header -->
+    @Html.Partial("Header")
+
+
+    <!-- Start Content -->
+    <!-- Title page -->
+    <section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('../images/Copy.jpg');margin:70px 70px 30px 70px;">
+        <h2 class="ltext-105 cl0 txt-center" style="padding-right: 35px; text-align: right; color: white;">
+            الاسئلة الأكثر تكراراً
+        </h2>
+    </section>
+
+    <div class="container ah" style="margin-bottom:30px;">
+        <p>
+            <span>س:</span> ماذا يعني اسم SBSD ؟
+            <br />
+            <span>ج :</span> SBSD تمثل اختصار ل Sell, Buy, Swap, Donate وهي العمليات الأربعة الرئيسية في الموقع.
+        </p>
+        <br />
+
+        <p>
+            <span>س:</span> هل النشر مجاني؟
+            <br />
+            <span>ج :</span>
+            نعم، يمكنك نشر إعلانات مجانية بعدد مفتوح.
+            ويوجد خدمات إضافية مدفوعة مثل الإعلانات الممولة التي تتيح لإعلانك الوصول لعدد أكبر من الناس وذلك مقابل رسوم رمزية.
+            ولمزيد من المعلومات &nbsp;&nbsp;&nbsp;&nbsp;يمكنك الضغط على الرابط التالي
+            <a href="~/Home/AdsServices">خدمات الدفع.</a>
+        </p>
+        <br />
+
+        <p>
+            <span>س:</span> ما هي آلية العمل في الموقع ؟
+            <br />
+            <span>ج :</span>
+            موقع SBSD يخدمك بأكثر من خدمة، حيث يمكنك بيع ملابسك أو التبديل بها مع أشخاص آخرين، أو التبرع بها، أو شراء ملابس مستخدمة بحالة جيدة وبثمن قليل.
+            ولكلّ خدمة آلية عمل:
+            <br />
+            <div class="p">
+                * إذا كنت تريد البيع فيمكنك
+                <a href="~/Home/create">الضغط هنا.</a>
+                <br />
+                * إذا كنت تريد عرض ملابسك للبدل فيمكنك
+                <a href="~/Home/createswap">الضغط هنا.</a>
+                <br />
+                * إذا كنت تريد التبرع فيمكنك
+                <a href="~/Home/Donate">الضغط هنا.</a>
+                <br />
+            </div>
+        </p>
+        <br />
+
+        <p>
+            <span>س:</span> كيف تتم عملية الشراء؟
+            <br />
+            <span>ج :</span>
+            تتم عملية الشراء عن طريق التواصل عبر الهاتف أو البريد الإلكتروني مع البائع، حيث يعمل الموقع فقط كوسيط بين البائع والمشتري ولا علاقة له بعمليات البيع الشراء.
+        </p>
+        <br />
+
+        <p>
+            <span>س:</span> كيف تتم عملية التبديل؟
+            <br />
+            <span>ج :</span> بعد أن يقوم البائع بعرض القطعة للبدل يبدأ باستقبال ردود من الأشخاص الذين يعرضون ملابسهم للبدل، وفي حال نال إعجاب البائع أي قطعة من الردود للتبديل بها تتم عملية التواصل بين الشخصين &nbsp;&nbsp;&nbsp;&nbsp;والإتفاق بينهم عن طريق رقم الهاتف أو البريد الإلكتروني.
+        </p>
+        <br />
+
+        <p>
+            <span>س:</span> كيف تتم عملية التبرع ولمن؟
+            <br />
+            <span>ج :</span>
+            في البداية يتم تجميع الملابس المراد التبرع بها بطريقتين، إمّا من خلال الملابس التي تمّ التبرع بها بشكل مباشر، أو من الملابس التي مرّ عليها مدّة أربعة أشهر في الموقع ولم يقوم أحد بشرائها، وذلك &nbsp;&nbsp;&nbsp;&nbsp;بموافقة صاحبها عند عرضه إعلان البيع أو البدل.
+            ومن بعدها يقوم مشرفين ومسؤليين الموقع بالتواصل مع المتبرعين لاستلام الملابس منهم، في تاريخ محدد مسبقاً. ليقوموا بعد ذلك بإعطاء الملابس
+            لفريق &nbsp;&nbsp;&nbsp;&nbsp;سمايل كود ليستلم مهمة توزيعها على من يحتاجها، حيث يعمل سمايل كود على التوزيع على مناطق مختلفة. <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;وإذا كنت تريد التعرف أكثر على الجهة المسؤولة عن التبرع يمكنك الإطلاع على صفحتهم على الفيس بوك من خلال <a href="https://www.facebook.com/aabu.it.smilecode/">الضغط هنا.</a>
+
+        </p>
+        <br />
+
+        <p>
+            <span>س:</span> كيف يتم ترتيب الإعلانات؟
+            <br />
+            <span>ج :</span> تترتب الإعلانات تلقائياً بناءً على وقت إضافتها، حيث يكون الإعلان الأحدث قبل الإعلان الأقدم. لكن إذا كنت ترغب في زيادة نسبة مشاهدة إعلانك يمكنك شراء إعلانات مموّلة حسب حاجتك وبالعرض &nbsp;&nbsp;&nbsp;&nbsp;الذي يناسبك.
+            وإذا كنت تريد التعرف أكثر على الخدمات الإعلانية وطريقة شرائها يمكنك قراءة معلومات عنها من
+            <a href="~/Home/AdsServices">هنا.</a>
+        </p>
+        <br />
+    </div>
+
+    <!-- End Content -->
+    <!-- Start Footer -->
+    @Html.Partial("Footer")
+    <!-- End footer -->
+    <!-- Back to top -->
+    <div class="btn-back-to-top" id="myBtn" style="background-color:#D8D8DA;">
+        <span class="symbol-btn-back-to-top">
+            <i class="zmdi zmdi-chevron-up"></i>
+        </span>
+    </div>
+
+
+    <!--===============================================================================================-->
+    <script src="~/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/select2/select2.min.js"></script>
+    <script>
+        $(".js-select2").each(function () {
+            $(this).select2({
+                minimumResultsForSearch: 20,
+                dropdownParent: $(this).next('.dropDownSelect2')
+            });
+        })
+    </script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/daterangepicker/moment.min.js"></script>
+    <script src="~/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/slick/slick.min.js"></script>
+    <script src="~/js/slick-custom.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/parallax100/parallax100.js"></script>
+    <script>
+        $('.parallax100').parallax100();
+    </script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
+    <script>
+        $('.gallery-lb').each(function () { // the containers for all your galleries
+            $(this).magnificPopup({
+                delegate: 'a', // the selector for gallery item
+                type: 'image',
+                gallery: {
+                    enabled: true
+                },
+                mainClass: 'mfp-fade'
+            });
+        });
+    </script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/isotope/isotope.pkgd.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/sweetalert/sweetalert.min.js"></script>
+    <script>
+        $('.js-addwish-b2').on('click', function (e) {
+            e.preventDefault();
+        });
+
+        $('.js-addwish-b2').each(function () {
+            var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
+            $(this).on('click', function () {
+                swal(nameProduct, "is added to wishlist !", "success");
+
+                $(this).addClass('js-addedwish-b2');
+                $(this).off('click');
+            });
+        });
+
+        $('.js-addwish-detail').each(function () {
+            var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
+
+            $(this).on('click', function () {
+                swal(nameProduct, "is added to wishlist !", "success");
+
+                $(this).addClass('js-addedwish-detail');
+                $(this).off('click');
+            });
+        });
+
+        /*---------------------------------------------*/
+
+        $('.js-addcart-detail').each(function () {
+            var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
+            $(this).on('click', function () {
+                swal(nameProduct, "is added to cart !", "success");
+            });
+        });
+
+    </script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script>
+        $('.js-pscroll').each(function () {
+            $(this).css('position', 'relative');
+            $(this).css('overflow', 'hidden');
+            var ps = new PerfectScrollbar(this, {
+                wheelSpeed: 1,
+                scrollingThreshold: 1000,
+                wheelPropagation: false,
+            });
+
+            $(window).on('resize', function () {
+                ps.update();
+            })
+        });
+    </script>
+    <!--===============================================================================================-->
+    <script src="~/js/main.js"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,198 @@
+﻿@model ProjectUni.Models.RegisterViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Register</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/images/logo-.jpeg" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LoginTheam/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LoginTheam/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LoginTheam/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LoginTheam/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LoginTheam/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LoginTheam/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LoginTheam/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LoginTheam/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/LoginTheam/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/LoginTheam/css/main.css">
+    <style>
+        .pic {
+            background-image: url('../../images/AccountImage.png');
+            height:100px;  
+            width: 100%; 
+            position: relative;
+            z-index: 1;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            padding: 70px 15px 74px 15px;
+        }
+        .form-control:hover {
+            border-color: #481762;
+            box-shadow: inset 0 1px 1px #481762, 0 0 8px #481762;
+        }
+        .b:hover {
+            border-color: #481762;
+            box-shadow: inset 0 1px 1px #481762, 0 0 8px #481762;
+        }
+        .row {
+            margin: 20px 1px 10px 80px;
+        }
+        .label{
+            text-align:center;
+        }
+    </style>
+    <!--===============================================================================================-->
+</head>
+<body>
+
+    <div class="limiter">
+        <div class="container-login100" >
+            <div class="wrap-login100" style="height:650px;border:solid #481762">
+                <div class="pic" @*class="login100-form-title"*@>
+                    <span class="login100-form-title-1" style="color:#481762;font-weight:bold;padding-right:90px;">
+                        إنشاء حساب
+                    </span>
+                </div>
+                
+
+                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+                    <!--اسم المستخدم-->
+                    <div class="row">
+                        <div class="col-md-8">
+                            @Html.ValidationMessageFor(m => m.UserName, "تم استخدامه سابقا", new { @class = "text-danger" })
+
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", style = "backgroud-color=white;" })
+                        </div>
+                        <div class="col-md-4">
+                            <label class="label" style="color: #481762; font-weight:bold;font-size:18px;">اسم المستخدم</label>
+                        </div>
+                    </div>
+
+
+                    <!--البريد الالكتروني-->
+                    <div class="row">
+                        <div class="col-md-8">
+                            @Html.ValidationMessageFor(m => m.Email, " ليس عنوان بريد إلكتروني صالح", new { @class = "text-danger" })
+
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        </div>
+                        <div class="col-md-4">
+                            <label class="label" style="color: #481762; font-weight:bold;font-size:18px;">البريد الإلكتروني</label>
+                        </div>
+                    </div>
+
+                    <!--كلمة المرور-->
+                    <div class="row">
+                        <div class="col-md-8">
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        </div>
+                        <div class="col-md-4">
+                            <label class="label" style="color: #481762; font-weight:bold;font-size:18px;">كلمه المرور </label>
+                        </div>
+                    </div>
+
+                    <!--تأكيد كلمة المرور-->
+                    <div class="row">
+                        <div class="col-md-8">
+                            @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                        </div>
+                        <div class="col-md-4">
+                            <label class="label" style="color: #481762; font-weight:bold;font-size:18px;">تأكيد كلمة المرور </label>
+                        </div>
+                    </div>
+
+                    <!--انشاء-->
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-5">
+                            <div class="">
+                                <button class="btn b" type="submit" style="width:100px;background-color:white;color:#481762;font-weight:bold;border:solid #481762 2px;">
+                                    إنشاء
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--دخول-->
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-5">
+                            <div class="">
+                                <span class="login100-form-title-1 b" style="color:#481762;font-weight:bold; font-size:18px; margin-left: 5px;">
+                                    هل لديك حساب؟
+                                </span><br />
+                                <div class="">
+                                    @*<button class="btn b" style="width:100px;background-color:white;border:solid #481762 2px;">*@
+                                    <a href="/Account/Login" class="btn b" style="width:100px;background-color:white;border:solid #481762 2px;color:#481762;font-weight:bold;">تسجيل دخول</a>
+                                    @*</button>*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+
+                    <!--back to home-->
+                    <div style="text-align:right;padding-right:30px;">
+                        <a href="/Home/Index" style="color:#481762;font-weight:bold;">الرجوع للصفحة الرئيسية</a>
+                        <svg class="bi bi-arrow-right-short" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M8.146 4.646a.5.5 0 01.708 0l3 3a.5.5 0 010 .708l-3 3a.5.5 0 01-.708-.708L10.793 8 8.146 5.354a.5.5 0 010-.708z" clip-rule="evenodd" />
+                            <path fill-rule="evenodd" d="M4 8a.5.5 0 01.5-.5H11a.5.5 0 010 1H4.5A.5.5 0 014 8z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <!--===============================================================================================-->
+    <script src="~/LoginTheam/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/LoginTheam/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/LoginTheam/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/LoginTheam/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/LoginTheam/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/LoginTheam/vendor/daterangepicker/moment.min.js"></script>
+    <script src="~/LoginTheam/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/LoginTheam/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/LoginTheam/js/main.js"></script>
+
+</body>
+</html>

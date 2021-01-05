@@ -1,0 +1,249 @@
+﻿@{
+    ViewBag.Title = "create";
+    Layout = null;
+}
+@model ProjectUni.Models.Adv
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sell</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/images/logo - Copy.jpeg" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/fonts/iconic/css/material-design-iconic-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/fonts/linearicons-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/slick/slick.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/MagnificPopup/magnific-popup.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/perfect-scrollbar/perfect-scrollbar.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/css/main.css">
+    <!--===============================================================================================-->
+    <style>
+        .container {
+            color: black;
+        }
+
+        .col-md-2 span{
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .shadd:hover {
+            border-color: #C27380;
+            box-shadow: inset 0 1px 1px #4B1761, 0 0 8px #4B1761;
+        }
+        .button {
+            background-color: white;
+            color: black;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body class="animsition">
+
+    <!--header-->
+    @Html.Partial("header")
+
+
+    <!-- Title page -->
+    <section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url(../images/Sell-With-Us.png);margin:0px 70px 50px 70px;">
+        <h2 class="ltext-105 cl0 txt-center" style="color:white;"></h2>
+    </section>
+
+
+    <!--content-->
+    <div class="container shadd" style="border: double;padding:20px;margin-bottom:50px;">
+
+        <form name="Adv" action="/Home/create" enctype="multipart/form-data" method="post" class="form" style="text-align:right;direction:rtl;">
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <!--الفئة-->
+            <div class="row">
+                <div class="col-md-2">
+                    <input type="hidden" id="hdn" name="CategoryId" />
+
+                    <span>اختر الفئة:</span>
+                </div>
+                <div class="col-md-10">
+                    <div class="form-group">
+                        <select id="slect" class="form-control form-control-lg shadd" required="لم تقم بتعبئتها">
+                            <option>اختر الفئة</option>
+                            @foreach (var item in ViewBag.sa)
+                            {
+                                <option value="@item.Id">@item.Name</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <br />
+
+            <!-- العنوان -->
+            <div class="row">
+                <div class="col-md-2">
+                    <span>اسم المنتج:</span>
+                </div>
+                <div class="col-md-10">
+                    <div class="form-group ">
+                        <input type="text" name="title" class="form-control shadd" id="title" placeholder="مثلاً: قميص رجالي " required="ادخال اسم المنتج">
+                    </div>
+                </div>
+            </div>
+            <br />
+
+            <!-- الوصف -->
+            <div class="row">
+                <div class="col-md-2">
+                    <span>الوصف</span>
+                </div>
+                <div class="col-md-10">
+                    <div class="form-group ">
+                        <textarea class="form-control shadd" id="exampleFormControlTextarea1" name="body" rows="6" placeholder=" مثلاً: قميص رجالي ربيعي، لون ازرق، مقاس 44 ... والمزيد من التفاصيل" re></textarea><br />
+                    </div>
+                </div>
+            </div>
+
+            <!-- السعر -->
+            <div class="row">
+                <div class="col-md-2">
+                    <span>السعر</span>
+                </div>
+                <div class="col-md-10">
+                    <div class="form-group ">
+                        @Html.ValidationMessageFor(m => m.price, "", new { @class = "text-danger" })
+                        <input type="text" name="price" class=" shadd form-control" aria-label="Amount (to the nearest dollar)" placeholder="بالدينار الأردني"><br />
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- رقم الهاتف -->
+            <div class="row">
+                <div class="col-md-2">
+                    <span>رقم الهاتف</span>
+                </div>
+                <div class="col-md-10">
+                    <div class="form-group ">
+                        @Html.ValidationMessageFor(m => m.phone, "", new { @class = "text-danger" })
+                        <input type="text" name="phone" class="form-control shadd" aria-label="Amount (to the nearest dollar)" placeholder="07xxxxxxxx"><br />
+                    </div>
+                </div>
+            </div>
+
+            <!-- المنطقة -->
+            <div class="row">
+                <div class="col-md-2">
+                    <span>اختر منطقتك:</span>
+                </div>
+
+                <div class="col-md-10">
+                    <select name="Address" id="pet-select" class="form-control form-control-lg shadd" required>
+                        <option value="">اختر منطقتك </option>
+                        <option value="عمان">عمان</option>
+                        <option value="الزرقاء">الزرقاء</option>
+                        <option value="اربد">اربد</option>
+                        <option value="السلط">السلط</option>
+                        <option value="عجلون">عجلون</option>
+                        <option value="جرش">جرش</option>
+                        <option value="مأدبا">مادبا</option>
+                        <option value="معان">معان</option>
+                        <option value="الطفيلة">الطفيله</option>
+                        <option value="الكرك">الكرك</option>
+                        <option value="المفرق">المفرق</option>
+                        <option value="العقبة">العقبه</option>
+                    </select>
+                </div>
+            </div>
+            <br />
+            <br />
+
+            <!--الصور-->
+            <div class="row">
+                <div class="col-md-2">
+                    <span>إرفق صوراً لمنتجك:</span>
+                </div>
+                <div class="col-md-10">
+                    <div class="form-group">
+
+                        <input type="file" class="form-control-file shadd" multiple name="images" id="">
+                    </div>
+                </div>
+            </div>
+            <br />
+
+            <!-- التبرع -->
+            <div class="row">
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-10">
+                    <div class="form-group form-check form-check-inline">
+                        <input class="form-check-input shadd" type="checkbox" />
+                        <span style="font-weight: bold;font-size: 18px;padding-right: 20px;">
+                            اضغط هنا إذا كنت توافق على التبرع بالقطعة في حال مرّ عليها أربعة أشهر ولم يتم شرائها.
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <br />
+
+            <!-- تثبيت أو حذف -->
+            <div class="row">
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-10">
+                    <button type="submit" class="btn-lg button shadd"> تثبيت</button>
+                    <button type="reset" class="btn-lg button shadd"> حذف</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!--footer-->
+    @Html.Partial("footer")
+
+    <!-- Back to top -->
+    <div class="btn-back-to-top" id="myBtn" style="background-color:#D8D8DA;">
+        <span class="symbol-btn-back-to-top">
+            <i class="zmdi zmdi-chevron-up"></i>
+        </span>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+
+            $(document).on("click", "#slect", function () {
+
+                $("#hdn").val($(this).val()).change();
+            })
+        });
+    </script>
+
+</body>
+</html>
+

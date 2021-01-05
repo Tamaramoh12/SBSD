@@ -1,0 +1,234 @@
+﻿@model ProjectUni.Models.Adv
+@{
+    Layout = null;
+}
+
+<div class="modal-header">
+    <h5 class="modal-title">
+        <span></span>
+    </h5>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+</div>
+<div class="modal-body">
+
+
+    <div class="overlay-modal1 js-hide-modal1"></div>
+    <div class="container">
+        <div class="bg0 p-t-60 p-b-30 p-lr-15-lg how-pos3-parent">
+
+            <div class="row">
+                <div class="col-md-6 col-lg-7 p-b-30">
+                    <div class="p-l-25 p-r-30 p-lr-0-lg">
+                        <div class="wrap-slick3 flex-sb flex-w">
+                            <div class="wrap-slick3-dots">
+                                <ul class="slick3-dots" style="" role="tablist">
+                                    @foreach (var item in Model.images)
+                                    {
+                                        <li role="presentation" class="slick-active"><img id="imgclick" src=" data:image/jpg;base64,@System.Convert.ToBase64String(item.image) "><div class="slick3-dot-overlay"></div></li>
+                                    }
+                                    @*<li class="slick-active" role="presentation"><img src=" images/product-detail-01.jpg "><div class="slick3-dot-overlay"></div></li>
+
+                                        <li role="presentation" class=""><img src=" images/product-detail-03.jpg "><div class="slick3-dot-overlay"></div></li>*@
+                                </ul>
+                            </div>
+   
+                            <div class="slick3 gallery-lb slick-initialized slick-slider slick-dotted">
+                                <div class="slick-list draggable">
+                                    <div class="slick-track" style="opacity: 1; width: 1800px;">
+                                        @foreach (var item in Model.images)
+                                        {
+
+                                            <div class="item-slick3 slick-slide slick-current slick-active" data-thumb="data:image/jpg;base64,@System.Convert.ToBase64String(item.image)" data-slick-index="0" aria-hidden="false" style="width: 600px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;" tabindex="0" role="tabpanel" id="slick-slide00" aria-describedby="slick-slide-control00">
+                                                <div class="wrap-pic-w img-thumbnail pos-relative">
+                                                    <img id="imgbig" src="data:image/jpg;base64,@System.Convert.ToBase64String(item.image)" alt="IMG-PRODUCT" style="width:600px ; height:550px">
+                                                    <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="data:image/jpg;base64,@System.Convert.ToBase64String(item.image)" tabindex="0">
+                                                        <i class="fa fa-expand"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        }
+
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-5 p-b-30">
+                    <div class="p-r-50 p-t-5 p-lr-0-lg">
+                        <h3 class="mtext-105 cl2 js-name-detail p-b-14">
+                            @Model.title
+                        </h3>
+
+                        <h6>
+                            <a href="http://localhost:55107/Home/AdvForUser?username=@Model.CreateionUser">@Model.CreateionUser</a>
+                        </h6>
+                        <br />
+                        <span class="mtext-106 cl2">
+                            <h3> @Model.price JD </h3>
+                        </span>
+
+                        <br />
+
+                        <p class="stext-102 cl3 p-t-23">
+
+                            <h5>   @Model.body </h5>
+                        </p>
+                        <br />
+
+                        <!--  -->
+                        <p class="stext-102 cl3 p-t-23">
+                            <i class="fas fa-phone-square-alt"></i>
+                            <h4>  <img src="https://img.icons8.com/ios-filled/50/000000/phone.png" /> @Model.phone</h4>
+                        </p>
+                        <p class="stext-102 cl3 p-t-23">
+
+                            <h5>   @Model.Address </h5>
+                        </p>
+                        <br />
+                        <!--  -->
+                        <br />
+                        <div>
+                            @if (Model.ForSwap)
+                            {
+                                <center>
+                                    <input class="btn btn-secondary" type="button" value="للتبديل" id="hide">
+
+                                </center>
+                                <form name="Adv" action="/Home/createcooment" enctype="multipart/form-data" id="p" method="post" class="form" style="text-align:right;direction:rtl;">
+                                    <h4><label>الاسم</label></h4>
+                                    <input type="text" name="name" class="form-control" />
+                                    <h4><label>رقم الهاتف</label></h4>
+                                    <input type="text" name="phone" class="form-control" />
+                                    <h4><label>أرفق المراد تبديلها</label></h4>
+                                    <input type="file" class="form-control-file shadd" multiple name="images" id="" required>
+
+
+                                    <input type="hidden" name="idadv" value="@Model.Id" class="form-control" />
+                                    <br />
+                                    <input type="submit" class="btn btn-secondary" value="اضافه تعليق" />
+                                </form>
+
+
+                            }
+                        </div>
+                        
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+<div class="modal-footer">
+   
+        <a class="btn btn-danger" style="color:white" href="/Home/DeleteAdvs?id=@Model.Id">حذف الأعلان</a>
+    
+    
+          <button type="button" class="btn btn-secondary close-button" data-dismiss="modal">اغلاق</button>
+        @*<button type="button" class="btn btn-primary  save-button"><i class="fa fa-save"></i> <span>save</span></button>*@
+</div>
+
+
+
+
+
+<script>
+    $('.js-addwish-b2, .js-addwish-detail').on('click', function (e) {
+        e.preventDefault();
+    });
+
+
+
+    $('.js-addwish-b2').each(function () {
+        var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
+        $(this).on('click', function () {
+            swal(nameProduct, "is added to wishlist !", "success");
+
+            $(this).addClass('js-addedwish-b2');
+            $(this).off('click');
+        });
+    });
+
+    $('.js-addwish-detail').each(function () {
+        var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
+
+        $(this).on('click', function () {
+            swal(nameProduct, "is added to wishlist !", "success");
+
+            $(this).addClass('js-addedwish-detail');
+            $(this).off('click');
+        });
+    });
+
+    /*---------------------------------------------*/
+
+    $('.js-addcart-detail').each(function () {
+        var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
+        $(this).on('click', function () {
+            swal(nameProduct, "is added to cart !", "success");
+        });
+    });
+
+</script>
+<script>
+    $('.parallax100').parallax100();
+</script>
+<script>
+    $('.gallery-lb').each(function () { // the containers for all your galleries
+        $(this).magnificPopup({
+            delegate: 'a', // the selector for gallery item
+            type: 'image',
+            gallery: {
+                enabled: true
+            },
+            mainClass: 'mfp-fade'
+        });
+    });
+</script>
+
+<script>
+    $('.js-pscroll').each(function () {
+        $(this).css('position', 'relative');
+        $(this).css('overflow', 'hidden');
+        var ps = new PerfectScrollbar(this, {
+            wheelSpeed: 1,
+            scrollingThreshold: 1000,
+            wheelPropagation: false,
+        });
+
+        $(window).on('resize', function () {
+            ps.update();
+        })
+    });
+</script>
+@if (Model.ForSwap)
+{
+<script>
+    $(document).ready(function () {
+        $("#p").hide();
+    });
+</script>
+}
+<script>
+    
+    $("#hide").click(function () {
+        $("#p").toggle();
+    });
+    $(document).ready(function () {
+        $(".modal-lg").css("max-width", "1400px");
+    });
+    $(".slick-active").on("click", function () {  
+        debugger;
+        var img = $(this).children('img').attr("src");
+        console.log(img)
+        $("#imgbig").attr("src", img);
+    });
+</script>

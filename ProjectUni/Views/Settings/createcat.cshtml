@@ -1,0 +1,66 @@
+﻿@model ProjectUni.Models.Category
+
+@{
+    ViewBag.Title = "createcat";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>createcat</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        
+
+        
+
+        
+
+        
+
+        <div class="form-control">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "span11" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        
+
+        <div class="form-control">
+            @Html.LabelFor(model => model.img, htmlAttributes: new { @class = "control-label col-md-2" })
+            
+                @Html.EditorFor(model => model.img, new { htmlAttributes = new { @class = "span11" } })
+                @Html.ValidationMessageFor(model => model.img, "", new { @class = "text-danger" })
+            </div>
+        
+
+        <div class="form-control">
+            @Html.LabelFor(model => model.link, htmlAttributes: new { @class = "control-label col-md-2" })
+            
+                @Html.EditorFor(model => model.link, new { htmlAttributes = new { @class = "span11" } })
+                @Html.ValidationMessageFor(model => model.link, "", new { @class = "text-danger" })
+            </div>
+        
+
+        
+        
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    
+}
+
+<div>
+    @Html.ActionLink("Back to List", "listofcat")
+</div>
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

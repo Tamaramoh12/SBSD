@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ProjectUni.Models.menu>
+
+@{
+    ViewBag.Title = "List Of Menu";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<table class="table" id="a">
+    <thead>
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.text)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.link)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.auth)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) { <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.text)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.link)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.auth)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Deletemenu", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+    </tbody>
+</table>
+
+
+<script>
+
+    $(document).ready(function () {
+        $('#a').DataTable();
+
+    });
+</script>

@@ -1,0 +1,208 @@
+﻿
+@using ProjectUni.Models
+@{ 
+    Layout = null;
+    ApplicationDbContext db = new ApplicationDbContext();
+
+    VMnotification models = new VMnotification();
+    var notifications = db.Notification.Where(x => x.userid == User.Identity.Name).OrderByDescending(x=>x.date).ToList();
+    if (notifications == null)
+    {
+        models.Count = 0;
+        models.notifications = null;
+
+    }
+    else
+    {
+        models.Count = notifications.Count();
+        models.notifications = notifications;
+    }
+    var username = db.Users.FirstOrDefault(x => x.UserName == User.Identity.Name);
+    bool iflogin = username == null ? true : false;
+
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Header</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/images/logo-.jpeg" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/fonts/iconic/css/material-design-iconic-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/fonts/linearicons-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/slick/slick.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/MagnificPopup/magnific-popup.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/perfect-scrollbar/perfect-scrollbar.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/css/main.css">
+    <!--===============================================================================================-->
+    <style>
+        .search {
+            margin-right: 55px;
+            width: 400px;
+            border: 1px solid #888;
+        }
+        .search input[type=text] {
+            font-size: 17px;
+            float: right;
+            width: 80%;
+            background: #f1f1f1;
+        }
+
+        .search button {
+            float: left;
+            width: 20%;
+            background: #4A1667;
+            color: white;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+    </style>
+    
+</head>
+<body class="animsition">
+
+    <!-- Header -->
+    <header>
+        <!-- Header desktop -->
+        <div class="container-menu-desktop">
+
+            <!-- Topbar -->
+            <div class="top-bar" style="background-color:#230235fc;">
+                <div class="content-topbar flex-sb-m h-full container" style="direction:rtl">
+                    <div class="left-top-bar" style="color:white; font-size:14px">
+                        أهلاً بكم في موقع SBSD، نتمنى لكم زيارة موّفقة.
+                    </div>
+                    <div class="right-top-bar flex-w h-full">
+
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a href="/Settings/listoffeadback" class="flex-c-m trans-04 p-lr-25" style="color:white; font-size:14px">
+                                لوحة التحكم
+                            </a>
+                        }
+
+                        <a href="~/Home/createFB" class="flex-c-m trans-04 p-lr-25" style="color:white; font-size:14px">
+                            رأيك يهمنا
+                        </a>
+
+                        <a href="~/Home/Accountbanking" class="flex-c-m trans-04 p-lr-25" style="color:white; font-size:14px">
+                            اشحن رصيدك
+                        </a>
+
+                        @if (iflogin)
+                        {
+                            <a href="~/Account/Login" class="flex-c-m trans-04 p-lr-25" style="color:white; font-size:14px">
+                                حسابي
+                            </a>
+                        }
+                        else
+                        {<div>
+                                <a class="flex-c-m trans-04 p-lr-25" style="color:white; font-size:14px" href="javascript:document.getElementById('logoutForm').submit()">تسجيل الخروج</a>
+
+
+                        </div>}
+
+                    </div>
+                </div>
+            </div>
+            <!-- Nav Bar -->
+            <div class="wrap-menu-desktop">
+                <nav style="direction:rtl" class="limiter-menu-desktop container">
+
+                    <!-- Logo desktop -->
+                    <a href="~/Home/Index" class="logo">
+                        <img src="~/cooming/images/logo - Copy.png" alt="IMG-LOGO">
+                    </a>
+
+                    <!-- Menu desktop -->
+                    <div class="menu-desktop">
+                        <ul class="main-menu">
+                            @foreach (var item in ViewBag.header)
+                            {
+                                <li>
+                                    <a style="color:black; font-size:18px" class="btn btn-outline-link" href="@item.link"><b>@item.text</b></a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+
+                    <!-- search -->
+                    <div class="search">
+                        <form method="post" action="/home/search">
+                            <input type="text" placeholder="ابحث عن كل ما تريد .." name="text">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
+                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                    {
+                        @Html.AntiForgeryToken()
+                    }
+
+                    <!-- Icon header -->
+                    @if (!iflogin)
+                    {
+                        if (username.numberofallowadv < username.numberofadvs)
+                        {
+                    <div class="alert alert-danger mt-2 mr-2" role="alert">
+                       يرجى اعادة شحن رصيدك
+                    </div>
+                        }
+                        <div class="wrap-icon-header flex-w flex-r-m">
+                            <div class="wrap-icon-header flex-w flex-r-m">
+                                <div class="btn-group">
+                                    <button type="button" style="font-size: 18px; font-weight: bold;" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        الإشعارات
+                                        <span class="badge badge-light" style="background-color:rgba(0,0,0,0.2);">@models.Count</span>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                
+                                        <div>
+                                          
+                                                @if (models.notifications != null)
+                                                {
+                                                    foreach (var item in models.notifications)
+                                                    {
+                                                        <a class="dropdown-item" href="#">@item.body</a>
+                                                        <div class="dropdown-divider"></div>
+                                                    }
+                                                }
+                                           
+                                            </div>
+                                     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </nav>
+            </div>
+        </div>
+    </header>
+</body>
+</html>
+
+

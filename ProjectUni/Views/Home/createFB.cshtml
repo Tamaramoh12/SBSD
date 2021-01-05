@@ -1,0 +1,274 @@
+﻿
+@{
+    Layout = null;
+}
+@model ProjectUni.Models.Feadback
+
+<!--Feedback Page-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Feedback</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/images/logo-.jpeg" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/fonts/iconic/css/material-design-iconic-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/fonts/linearicons-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/slick/slick.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/MagnificPopup/magnific-popup.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/perfect-scrollbar/perfect-scrollbar.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/css/main.css">
+    <!--===============================================================================================-->
+    <style>
+        .par {
+            background-color: white;
+            direction: rtl;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            color: black;
+            font-size: 16px;
+            font-family: Arial;
+            font-weight: bold;
+        }
+
+        .par p {
+            padding: 10px 0px;
+        }
+        .button {
+            background-color: white;
+            color: black;
+            border: 1px solid black;
+
+        }
+        .button:hover {
+            background-color: #D8D8DA;               
+            color: black;
+        }
+        .shadd:hover {
+            border-color: #481762;
+            box-shadow: inset 0 1px 1px #481762, 0 0 8px #481762;
+        }
+    </style>
+</head>
+<body class="animsition">
+
+
+    <!-- Header -->
+    @Html.Partial("Header")
+    <!--End Header-->
+    <!-- Feedback Content -->
+    <!-- Title page -->
+    <section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('../images/Copy.jpg');margin:70px;margin-bottom:0px;">
+        <h2 class="ltext-105 cl0 txt-center" style="padding-right: 35px; text-align: right; color: white;">
+            رأيك يهمنا
+        </h2>
+    </section>
+
+    <section class="par">
+        <div class="container">
+            <p>
+                نحرص دائماَ على الإستماع لآراء زبائننا واقتراحاتهم والإستجابة لها لنقدِّم أفضل محتوى وأفضل خدمة لنكون دائماً عند حسن ظنكم.
+            </p>
+            <p>
+                لذا، إن كان لديكم أيّ اقترحات أو شكاوي أو مشاكل تقنية أو غير ذلك، نرجو منكم تعبئة النموذج التالي:
+                <br /><br />
+            </p>
+            <form name="Adv" action="/Home/createFB" enctype="multipart/form-data" method="post" class="form" style="text-align:right;direction:rtl;">
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <!-- الاسم -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <h5>الاسم:</h5><br />
+                            @Html.ValidationMessageFor(m => m.name, "", new { @class = "text-danger" })
+
+                            <input type="text" name="name" class="form-control shadd"><br />
+                        </div>
+                    </div>
+                </div>
+                <!--الايميل-->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <h5>البريد الإلكتروني:</h5><br />
+                            @Html.ValidationMessageFor(m => m.email, "", new { @class = "text-danger" })
+                            <input type="email" name="email" class="form-control shadd"><br />
+                        </div>
+                    </div>
+                </div>
+                <!--رقم الهاتف-->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <h5>رقم الهاتف:</h5><br />
+
+                            @Html.ValidationMessageFor(m => m.phone, "", new { @class = "text-danger" })
+
+                            <input type="text" name="phone" class="form-control shadd"><br />
+                        </div>
+                    </div>
+                </div>
+                <!--ملاحظة-->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <h5>أخبرنا بكلّ ما تريد:</h5><br />
+                            <textarea class="form-control shadd" name="note" rows="6" required></textarea><br />
+                        </div>
+                    </div>
+                </div>
+                <!-- تثبيت أو حذف -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <button type="submit" class="button btn-lg shadd" style="color=pink;"> تثبيت</button>
+                        <button type="reset" class="button btn-lg shadd"> حذف</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <!-- Start Footer -->
+    @Html.Partial("Footer")
+    <!-- End footer -->
+    <!-- Back to top -->
+    <div class="btn-back-to-top" id="myBtn" style="background-color:#D8D8DA;">
+        <span class="symbol-btn-back-to-top">
+            <i class="zmdi zmdi-chevron-up"></i>
+        </span>
+    </div>
+
+    <!--===============================================================================================-->
+    <script src="~/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/select2/select2.min.js"></script>
+    <script>
+        $(".js-select2").each(function () {
+            $(this).select2({
+                minimumResultsForSearch: 20,
+                dropdownParent: $(this).next('.dropDownSelect2')
+            });
+        })
+    </script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/daterangepicker/moment.min.js"></script>
+    <script src="~/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/slick/slick.min.js"></script>
+    <script src="~/js/slick-custom.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/parallax100/parallax100.js"></script>
+    <script>
+        $('.parallax100').parallax100();
+    </script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
+    <script>
+        $('.gallery-lb').each(function () { // the containers for all your galleries
+            $(this).magnificPopup({
+                delegate: 'a', // the selector for gallery item
+                type: 'image',
+                gallery: {
+                    enabled: true
+                },
+                mainClass: 'mfp-fade'
+            });
+        });
+    </script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/isotope/isotope.pkgd.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/sweetalert/sweetalert.min.js"></script>
+    <script>
+        $('.js-addwish-b2').on('click', function (e) {
+            e.preventDefault();
+        });
+
+        $('.js-addwish-b2').each(function () {
+            var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
+            $(this).on('click', function () {
+                swal(nameProduct, "is added to wishlist !", "success");
+
+                $(this).addClass('js-addedwish-b2');
+                $(this).off('click');
+            });
+        });
+
+        $('.js-addwish-detail').each(function () {
+            var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
+
+            $(this).on('click', function () {
+                swal(nameProduct, "is added to wishlist !", "success");
+
+                $(this).addClass('js-addedwish-detail');
+                $(this).off('click');
+            });
+        });
+
+        /*---------------------------------------------*/
+
+        $('.js-addcart-detail').each(function () {
+            var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
+            $(this).on('click', function () {
+                swal(nameProduct, "is added to cart !", "success");
+            });
+        });
+
+    </script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script>
+        $('.js-pscroll').each(function () {
+            $(this).css('position', 'relative');
+            $(this).css('overflow', 'hidden');
+            var ps = new PerfectScrollbar(this, {
+                wheelSpeed: 1,
+                scrollingThreshold: 1000,
+                wheelPropagation: false,
+            });
+
+            $(window).on('resize', function () {
+                ps.update();
+            })
+        });
+    </script>
+    <!--===============================================================================================-->
+    <script src="~/js/main.js"></script>
+
+</body>
+</html>

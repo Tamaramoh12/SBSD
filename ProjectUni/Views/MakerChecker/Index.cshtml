@@ -1,0 +1,86 @@
+﻿@model IEnumerable<ProjectUni.Models.Adv>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<table class="table" id="i">
+    <thead>
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.body)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.phone)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+
+        <th>Comment</th>
+        <th>Action</th>
+        
+
+      
+    </tr>
+        </thead>
+    <tbody>
+        
+    @foreach (var item in Model)
+    {
+    <tr>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.title)
+        </td>
+        
+        <td> @Html.DisplayFor(modelItem => item.body)</td>
+        <td> @Html.DisplayFor(modelItem => item.phone)</td>
+        <td> @Html.DisplayFor(modelItem => item.Address)</td>
+        <td> @Html.DisplayFor(modelItem => item.price)</td>
+        <td>
+            <input type="text" class="from-control" id="input-@item.Id" />
+        </td>
+        <td>
+            <a href="/MakerChecker/Active/@item.Id" class="btn" style="color:white;background-color:#6d304c">Active</a>
+            |
+            <a class="btn" style="color:white;background-color:#6d304c" href="/settings/imageadv?id=@item.Id">images</a>
+            |
+            <button type="submit" data-id="@item.Id" class="btn" id="deactive" style="color:white;background-color:#6d304c">Deactive</button>
+            <br />
+        </td>
+    </tr>
+    }
+        </tbody>
+
+</table>
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script>
+    $(document).on("click","#deactive", function () {
+    
+        var id = $(this).attr("data-id");
+        var input = $("#input-" + id);
+        window.location.href = '/makerchecker/deactive/' + id + "?msg=" + input.val();
+    });
+
+</script>
+<script>
+
+    $(document).ready(function () {
+        $('#i').DataTable();
+
+    });
+</script>

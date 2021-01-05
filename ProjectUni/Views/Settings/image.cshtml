@@ -1,0 +1,16 @@
+﻿@model ProjectUni.Models.Donate
+
+@{
+    ViewBag.Title = "image";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@foreach (var img in Model.Image)
+{
+
+    <img src="data:image/jpg;base64,@System.Convert.ToBase64String(img.image)" alt="IMG-PRODUCT" width="200" height="400">
+
+
+
+}
+

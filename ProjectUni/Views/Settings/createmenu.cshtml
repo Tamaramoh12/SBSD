@@ -1,0 +1,75 @@
+﻿@model ProjectUni.Models.menu
+@using ProjectUni.Models
+
+@{
+    ViewBag.Title = "Create Menu";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .form-control {
+    }
+</style>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-control">
+        @Html.LabelFor(model => model.text, htmlAttributes: new { @class = "control-label col-md-2" })
+
+        @Html.EditorFor(model => model.text, new { htmlAttributes = new { @class = "span11" } })
+        @Html.ValidationMessageFor(model => model.text, "", new { @class = "text-span11" })
+    </div><br />
+
+
+    <div class="form-control">
+        @Html.LabelFor(model => model.link, htmlAttributes: new { @class = "control-label col-md-2" })
+
+        @Html.EditorFor(model => model.link, new { htmlAttributes = new { @class = "span11" } })
+        @Html.ValidationMessageFor(model => model.link, "", new { @class = "text-danger" })
+    </div><br />
+
+
+    <div class="form-control">
+        @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2" })
+
+        @Html.EditorFor(model => model.Type, new { htmlAttributes = new { @class = "span11" } })
+        @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
+    </div><br />
+
+
+    <div class="form-control">
+        @Html.LabelFor(model => model.auth, htmlAttributes: new { @class = "control-label col-md-2" })
+        <select name="auth" id="auth" class="span11">
+            <option value="@auth.admin">admin</option>
+            <option value="@auth.user">user</option>
+            <option value="@auth.all">all</option>
+        </select>
+    </div><br />
+
+    <script>
+        $("#auth").select2();
+    </script>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" style="background-color: white;color: black;border: 1px solid black;" />
+        </div>
+
+    </div>
+
+    <div style="color:black;">
+        @Html.ActionLink("Back to List", "listofmenu")
+    </div>
+
+
+
+
+
+}
+
+

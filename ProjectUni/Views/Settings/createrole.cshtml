@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "createrole";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("Create Role", "settings", FormMethod.Post))
+{
+    <label>Role Name</label>
+    <input type="text" name="Rolename"  class="span11"/>
+    <br /> <br />
+    <input type="submit" name="submit" class="btn" style="background-color: white;
+            color: black;
+            border: 1px solid black;"  />
+}
+

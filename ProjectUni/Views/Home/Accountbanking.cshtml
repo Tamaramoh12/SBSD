@@ -1,0 +1,168 @@
+﻿@{Layout = null;
+}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]> <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]> <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Checkout Form</title>
+    <link rel="icon" type="image/png" href="~/images/logo-.jpeg" />
+    <link href="~/css/style.css" rel="stylesheet" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <style>
+        .form-control {
+            text-align: right;
+            direction: rtl;
+            font-family: Rockwell,Arial,Tahoma;
+            font-size: 12px;
+        }
+        .shadd:hover {
+            border-color: #C27380;
+            box-shadow: inset 0 1px 1px #4B1761, 0 0 8px #4B1761;
+        }
+        h3 {
+            padding-top: 15px;
+            text-align: center;
+            font-family: Rockwell,Arial,Tahoma;
+            font-weight: bold;
+            color: black;
+        }
+        .card-body {
+            padding-bottom: 15px;
+            text-align: center;
+            font-family: Rockwell,Arial,Tahoma;
+            font-weight: bold;
+            color: black;
+        }
+        .btn {
+            background-color: #4B1761;
+            font-size: 16px;
+            color: white;
+            font-family: Rockwell,Arial,Tahoma;
+            font-weight: bold;
+        }
+        .btn:hover{
+            color:white;
+        }
+    </style>
+</head>
+
+<body style="background-color:#D8D8DA;margin:20px;padding:10px;">
+
+    <h2 style="text-align:center;font-family:Rockwell,Arial,Tahoma;font-weight:bold;color:black;">شراء رصيد للإعلانات</h2>
+    <br />
+
+    <h6 style="text-align:center;font-family:Rockwell,Arial,Tahoma;font-weight:bold;color:black;">
+        الرجاء اختيار الحزمة التي ترغب بها وتعبئة النموذج التالي لإتمام غايات الدفع
+    </h6>
+
+    <form class="checkout">
+        <div class="checkout-header">
+            <h1 class="checkout-title" style="direction:rtl;text-align: right;font-family: Rockwell,Arial,Tahoma; font-size:16px;">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                الدفع ببطاقة الائتمان
+                <span class="checkout-price pr">2</span>
+            </h1>
+        </div>
+
+        <p>
+            <input type="text" class="form-control shadd" placeholder="اسم حامل البطاقه" autofocus>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" class="form-control shadd" placeholder="شهر انتهاء البطاقه">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control shadd" placeholder="سنه انتهاء البطاقه">
+                </div>
+            </div>
+        </p>
+
+        <p>
+            <input type="text" class="form-control checkout-card shadd" placeholder="رقم البطاقه">
+            <br />
+            <input type="text" class="form-control shadd" placeholder="الرقم السري">
+        </p>
+
+        <form method="post" class="checkout" action="/home/Accountbanking">
+            <input type="hidden" name="amount" id="amount" value="2" />
+            <input type="submit" value="ادفع" class="btn btn-block" style="background-color: #4B1761;font-size:16px;color: white;font-family: Rockwell,Arial,Tahoma; font-weight:bold;">
+        </form>
+    </form>
+
+
+    <hr />
+    <h2 style="text-align:center;font-family:Rockwell,Arial,Tahoma;font-weight:bold;color:black;">حزم الاعلانات</h2>
+    <br />
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-title">
+                    <h3>الحزمة البرونزية</h3>
+                </div>
+                <div class="card-body">
+                    إضافة ثلاثة إعلانات إلى رصيدك الإعلاني <br />
+                    بسعر دينارين فقط <br />
+                    <br />
+                    <input type="button" class="btn" data-val="2" value="اشتري الان">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-title">
+                    <h3>الحزمة الفضية</h3>
+                </div>
+                <div class="card-body">
+                    إضافة ثمانية إعلانات إلى رصيدك الإعلاني
+                    <br /> بسعر أربعة دنانير فقط <br />
+                    <br />
+                    <input type="button" class="btn" data-val="4" value="اشتري الان">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-title">
+                    <h3> الحزمة الذهبية</h3>
+                </div>
+                <div class="card-body">
+                    إضافة أربعة عشر إعلان إلى رصيدك الإعلاني
+                    <br /> بسعر ستة دنانير فقط <br />
+                    <br />
+                    <input type="button" class="btn" data-val="6" value="اشتري الان">
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <!--back to home-->
+    <div style="text-align:right;">
+        <a href="/Home/Index" style="color:#481762;font-weight:bold;font-family:Rockwell,Arial,Tahoma;">الرجوع للصفحة الرئيسية</a>
+        <svg class="bi bi-arrow-right-short" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M8.146 4.646a.5.5 0 01.708 0l3 3a.5.5 0 010 .708l-3 3a.5.5 0 01-.708-.708L10.793 8 8.146 5.354a.5.5 0 010-.708z" clip-rule="evenodd" />
+            <path fill-rule="evenodd" d="M4 8a.5.5 0 01.5-.5H11a.5.5 0 010 1H4.5A.5.5 0 014 8z" clip-rule="evenodd" />
+        </svg>
+    </div>
+
+</body>
+</html>
+
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script>
+
+    $(".btn").click(function () {
+        $(".pr").text($(this).attr("data-val")+"JD");
+        $("#amount").val($(this).attr("data-val"));
+    })
+</script>

@@ -1,0 +1,160 @@
+﻿@model ProjectUni.Models.Adv
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DeleteAdvs</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Adv</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.CreationTime)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CreationTime)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.IsDeleted)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.IsDeleted)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ModifyTime)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ModifyTime)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CreateionUser)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CreateionUser)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.phone)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.phone)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.title)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.title)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.link)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.link)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ForSwap)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ForSwap)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.userid)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.userid)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.body)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.body)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.price)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.price)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.forswapping)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.forswapping)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.IsActive)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ispro)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ispro)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CategoryId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CategoryId)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>

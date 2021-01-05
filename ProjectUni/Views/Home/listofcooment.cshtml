@@ -1,0 +1,173 @@
+﻿
+@model IEnumerable<ProjectUni.Models.comment>
+@{
+
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Comments</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/images/logo-.jpeg" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/fonts/iconic/css/material-design-iconic-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/fonts/linearicons-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/slick/slick.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/MagnificPopup/magnific-popup.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/perfect-scrollbar/perfect-scrollbar.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/css/main.css">
+    <!--===============================================================================================-->
+    <style>
+        .button {
+            background-color: white;
+            color: black;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body class="animsition">
+
+    <!-- Header -->
+    @Html.Partial("Header")
+    <!-- End Header -->
+    <!-- Start Donate Content -->
+    <!-- Title page -->
+    <div class="container" sr>
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1" id="logout">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1" id="login">
+                <div class="page-header">
+                    <h3 class="reviews"></h3>
+
+                </div>
+                <div class="comment-tabs" style="direction:rtl">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#comments-login" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Comments</h4></a></li>
+
+
+                    </ul>
+
+                    @foreach (var item in Model)
+                    {
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="comments-login">
+                                <ul class="media-list">
+                                    <li class="media">
+                                        <a class="pull-left" href="#">
+                                            @foreach (var items in item.image)
+                                            {
+                                                <img id="clickimg" data-byte="@items.image" class="media-object clickimg img-circle" width="100px" src="data:image/jpg;base64,@System.Convert.ToBase64String(items.image)" alt="profile">
+
+                                            }
+
+                                        </a>
+                                        <div class="media-body">
+                                            <div class="well well-lg">
+                                                <h4 class="media-heading text-uppercase reviews">@item.name</h4>
+                                                <ul class="media-date text-uppercase reviews list-inline">
+                                                    <li class="dd">@item.phone</li>
+
+                                                </ul>
+
+
+                                            </div>
+
+                                        </div>
+
+
+                                    </li>
+
+
+                                </ul>
+
+                            </div>
+
+
+
+                        </div>
+                    }
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- End Donate Content -->
+    <!-- Start Footer -->
+    @Html.Partial("Footer")
+    <!-- End footer -->
+    <!-- Back to top -->
+    <div class="btn-back-to-top" id="myBtn" style="background-color:#D8D8DA;">
+        <span class="symbol-btn-back-to-top">
+            <i class="zmdi zmdi-chevron-up"></i>
+        </span>
+    </div>
+
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script>
+
+        $(".clickimg").on("click", function () {
+            var x = $(this).attr("src")
+            const base64ImageData = x;
+            const contentType = 'image/png';
+
+            const byteCharacters = atob(base64ImageData.substr(`data:${contentType};base64,`.length));
+            const byteArrays = [];
+
+            for (let offset = 0; offset < byteCharacters.length; offset += 1024) {
+                const slice = byteCharacters.slice(offset, offset + 1024);
+
+                const byteNumbers = new Array(slice.length);
+                for (let i = 0; i < slice.length; i++) {
+                    byteNumbers[i] = slice.charCodeAt(i);
+                }
+
+                const byteArray = new Uint8Array(byteNumbers);
+
+                byteArrays.push(byteArray);
+            }
+            const blob = new Blob(byteArrays, { type: contentType });
+            const blobUrl = URL.createObjectURL(blob);
+
+            window.open(blobUrl, '_blank');
+        });
+    </script>
+
+
+
+
+
+
+

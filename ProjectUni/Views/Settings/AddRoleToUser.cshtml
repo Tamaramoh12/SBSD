@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Add Role To User";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<form method="post" action="/settings/AddUserToRole" >
+    
+        <label>Users</label>
+   
+   
+        <select class="form-control" name="userid">
+            @foreach (var item in ViewBag.user)
+            {
+                <option value="@item.Id">@item.UserName</option>
+            }
+
+        </select>
+    
+        <label>role</label>
+    
+   
+        <select class="form-control" name="rolename">
+            @foreach (var item in ViewBag.role)
+            {
+                <option value="@item.Name">@item.Name</option>
+            }
+        </select>
+        
+        <br />
+    <br />
+        <input type="submit" value="add" class="btn btn-info" />
+
+</form>
+
+

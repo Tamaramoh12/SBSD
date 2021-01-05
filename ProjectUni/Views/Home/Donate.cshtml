@@ -1,0 +1,552 @@
+﻿
+
+
+    @*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+    @*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CreationTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsDeleted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifyTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateionUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Longitude)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Latitude)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreationTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDeleted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifyTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateionUser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Longitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Latitude)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+    }
+
+    </table>*@
+
+
+@{
+    Layout = null;
+}
+@model ProjectUni.Models.Donate
+
+
+
+<!--Donate Page-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Donate</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/images/logo-.jpeg" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/fonts/iconic/css/material-design-iconic-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/fonts/linearicons-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/slick/slick.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/MagnificPopup/magnific-popup.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/vendor/perfect-scrollbar/perfect-scrollbar.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/css/main.css">
+    <!--===============================================================================================-->
+    <style>
+        .button {
+            background-color: white;
+            color: black;
+            border: 1px solid black;
+        }
+        .shadd:hover {
+            border-color: #481762;
+            box-shadow: inset 0 1px 1px #481762, 0 0 8px #481762;
+        }
+    </style>
+</head>
+<body class="animsition">
+
+    <!-- Header -->
+    @Html.Partial("Header")
+    <!-- End Header -->
+    <!-- Start Donate Content -->
+    <!-- Title page -->
+    <section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('../images/donatewhite.jpeg');margin-left:70px;margin-right:70px;">
+        <h2 class="ltext-105 cl0 txt-center" style="color:white;"></h2>
+    </section>
+
+    <!--Rows-->
+    <section class="bg0 p-t-75 p-b-120" style="direction:rtl">
+        <div class="container">
+            <!--row 1-->
+            <div class="row p-b-148">
+                <div class="col-md-7 col-lg-8">
+                    <div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md">
+                        <p class="stext-113 cl6 p-b-26" style="font-family: Arial; font-size: 18px; color: black;">
+                            إيماناَ منّا بالعطاء وفضله وأثره على الفرد والمجتمع، وأهمية مساعدة الغير . بادرنا نحن أعضاء فريق SBSD
+                            بأن نكون حلقة الوصل بين أصحاب الخير والمحتاجين. وذلك من خلال تخصيص جزء من الموقع للتبرع،
+                            حيث يعمل موقع SBSD حملات ثابتة للتبرع بالملابس ثلاث مرات بالسنة.
+                            كلّ أربعة أشهر عن طريق جمع الملابس التي مرّ عليها أربعة أشهر في الموقع ولم يقوم أحد بشرائها.
+                            وذلك بموافقة مالكها حيث يوافق على عملية التبرع عند عرضه لإعلانه إذا كان يريد التبرع.
+                            وبعد مرور المدة المحددة يتم نقل التبرعات إلى مستودع التبرعات
+                            لتوزيعها في الوقت المناسب على مَن يحتاجها،
+                            عن طريق التواصل مع فريق سمايل كود
+                            حيث يستلم فريق سمايل كود مهمة تجميع الملابس من المتبرعين ومن ثمّ فرزها وتحسينها وتوزيعها على الجمعيات الخيرية
+                            في مختلف المناطق.
+
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-11 col-md-5 col-lg-4 m-lr-auto">
+                    <div class="how-bor1 ">
+                        <div class="hov-img0">
+                            <img src="../images/burger.jpeg" alt="IMG">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--row 2-->
+            <div class="row">
+                <div class="order-md-2 col-md-7 col-lg-8 p-b-30">
+                    <div class="p-t-7 p-l-85 p-l-15-lg p-l-0-md">
+                        <p class="stext-113 cl6 p-b-26" style="font-family: Arial; font-size: 18px; color: black">
+
+                            علماً أنّ فريق سمايل كود هو فريق عمل تطوعي تأسس في 12-4-2017،
+                            ليمد يد العون للكثير من الناس حيث يقوم بنشاطات مختلفة منها الإفطارات الرمضانية،
+                            وفرحة العيد للأطفال، والمحاضرات التوعوية، ومبادرات توزيع الحقائب المدرسية وقرطاسيتها،
+                            ولا شك مبادرات التبرع بالملابس التي نعاقدنا معهم بها، وذلك من خلال مبادرة تسمى كسوة الشتاء يقوموا خلالها
+                            بجمع الملابس من المتبرعين وتحسينها من غسيل وكي وغيرها وتوزيعها على من يحتاجها. <br />
+                            وللتعرف أكثر على فريق سمايل كود يمكنكم زيارة صفحتهم على الفيس بوك من خلال
+                            <a href="https://www.facebook.com/aabu.it.smilecode/" style="color:#D46A79;"><strong>الضغط هنا.</strong> </a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="order-md-1 col-11 col-md-5 col-lg-4 m-lr-auto p-b-30">
+                    <div class="how-bor2">
+                        <div class="hov-img0">
+                            <img src="../images/cupCake.jpeg" alt="IMG">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br /><br /><br /><br />
+            <!--row 3-->
+            <div class="row p-b-148">
+                <div class="col-md-7 col-lg-8">
+                    <div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md" style="font-family: Arial; font-size: 18px; color: black; text-align:right">
+                        <!-- الاسم،الايميل، رقم الهاتف، الصورة،الموقع-->
+                        <h5> أمّا إذا كنت تريد التبرع بشكل مباشر الرجاء تعبئة النموذج التالي:</h5><br />
+                        <form action="/Home/Donate" method="post" enctype="multipart/form-data">
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                <label>الاسم:</label>
+                                <input type="text" class="form-control shadd" name="name" id="name">
+                            </div>
+                            <div class="form-group">
+                                @Html.ValidationMessageFor(m => m.FromEmail, "", new { @class = "text-danger" })
+                                <label for="pwd">البريد الإلكتروني:</label>
+                                <input type="email" class="form-control shadd" name="FromEmail" id="pwd">
+                            </div>
+                            <div class="form-group">
+                                @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-danger" })
+                                <label for="pwd">رقم الهاتف:</label>
+                                <input type="text" class="form-control shadd" name="Phone" id="phone">
+                            </div>
+                            <div class="form-group">
+                                @Html.ValidationMessageFor(m => m.Image, "", new { @class = "text-danger" })
+                                <label for="pwd">الملابس المراد التبرع بها:</label>
+                                <input type="file" class="form-control shadd" multiple name="images" id="Image">
+                            </div>
+                            <div class="form-group">
+                                @Html.ValidationMessageFor(m => m.Longitude, "", new { @class = "text-danger" })
+                                <label for="pwd">الموقع:</label>
+                                <input type="text" class="form-control shadd" name="Longitude" id="pwd">
+                            </div>
+                            <button type="submit" class="button btn-lg shadd">
+                                تثبيت
+                            </button>
+                            <button type="reset" class="button btn-lg shadd">
+                                حذف
+                            </button>
+
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-11 col-md-5 col-lg-4 m-lr-auto">
+                    <div class="how-bor1 ">
+                        <div class="hov-img0">
+                            <img src="../images/sushi.jpeg" alt="IMG" height=550 px>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- End Donate Content -->
+    <!-- Start Footer -->
+    @Html.Partial("Footer")
+    <!-- End footer -->
+    <!-- Back to top -->
+    <div class="btn-back-to-top" id="myBtn" style="background-color:#D8D8DA;">
+        <span class="symbol-btn-back-to-top">
+            <i class="zmdi zmdi-chevron-up"></i>
+        </span>
+    </div>
+
+    <!-- Modal1 -->
+    @*<div class="wrap-modal1 js-modal1 p-t-60 p-b-20">
+            <div class="overlay-modal1 js-hide-modal1"></div>
+
+            <div class="container">
+                <div class="bg0 p-t-60 p-b-30 p-lr-15-lg how-pos3-parent">
+                    <button class="how-pos3 hov3 trans-04 js-hide-modal1">
+                        <img src="~/images/icons/icon-close.png" alt="CLOSE">
+                    </button>
+
+                    <div class="row">
+                        <div class="col-md-6 col-lg-7 p-b-30">
+                            <div class="p-l-25 p-r-30 p-lr-0-lg">
+                                <div class="wrap-slick3 flex-sb flex-w">
+                                    <div class="wrap-slick3-dots"></div>
+                                    <div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
+
+                                    <div class="slick3 gallery-lb">
+                                        <div class="item-slick3" data-thumb="http://localhost:55107/images/product-detail-01.jpg">
+                                            <div class="wrap-pic-w pos-relative">
+                                                <img src="~/images/product-detail-01.jpg" alt="IMG-PRODUCT">
+
+                                                <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="~/images/product-detail-01.jpg">
+                                                    <i class="fa fa-expand"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="item-slick3" data-thumb="http://localhost:55107/images/product-detail-02.jpg">
+                                            <div class="wrap-pic-w pos-relative">
+                                                <img src="~/images/product-detail-02.jpg" alt="IMG-PRODUCT">
+
+                                                <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="~/images/product-detail-02.jpg">
+                                                    <i class="fa fa-expand"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="item-slick3" data-thumb="http://localhost:55107/images/product-detail-03.jpg">
+                                            <div class="wrap-pic-w pos-relative">
+                                                <img src="~/images/product-detail-03.jpg" alt="IMG-PRODUCT">
+
+                                                <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="~/images/product-detail-03.jpg">
+                                                    <i class="fa fa-expand"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-5 p-b-30">
+                            <div class="p-r-50 p-t-5 p-lr-0-lg">
+                                <h4 class="mtext-105 cl2 js-name-detail p-b-14">
+                                    Lightweight Jacket
+                                </h4>
+
+                                <span class="mtext-106 cl2">
+                                    $58.79
+                                </span>
+
+                                <p class="stext-102 cl3 p-t-23">
+                                    Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat.
+                                </p>
+
+                                <!--  -->
+                                <div class="p-t-33">
+                                    <div class="flex-w flex-r-m p-b-10">
+                                        <div class="size-203 flex-c-m respon6">
+                                            Size
+                                        </div>
+
+                                        <div class="size-204 respon6-next">
+                                            <div class="rs1-select2 bor8 bg0">
+                                                <select class="js-select2" name="time">
+                                                    <option>Choose an option</option>
+                                                    <option>Size S</option>
+                                                    <option>Size M</option>
+                                                    <option>Size L</option>
+                                                    <option>Size XL</option>
+                                                </select>
+                                                <div class="dropDownSelect2"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex-w flex-r-m p-b-10">
+                                        <div class="size-203 flex-c-m respon6">
+                                            Color
+                                        </div>
+
+                                        <div class="size-204 respon6-next">
+                                            <div class="rs1-select2 bor8 bg0">
+                                                <select class="js-select2" name="time">
+                                                    <option>Choose an option</option>
+                                                    <option>Red</option>
+                                                    <option>Blue</option>
+                                                    <option>White</option>
+                                                    <option>Grey</option>
+                                                </select>
+                                                <div class="dropDownSelect2"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex-w flex-r-m p-b-10">
+                                        <div class="size-204 flex-w flex-m respon6-next">
+                                            <div class="wrap-num-product flex-w m-r-20 m-tb-10">
+                                                <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
+                                                    <i class="fs-16 zmdi zmdi-minus"></i>
+                                                </div>
+
+                                                <input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product" value="1">
+
+                                                <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
+                                                    <i class="fs-16 zmdi zmdi-plus"></i>
+                                                </div>
+                                            </div>
+
+                                            <button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+                                                Add to cart
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--  -->
+                                <div class="flex-w flex-m p-l-100 p-t-40 respon7">
+                                    <div class="flex-m bor9 p-r-10 m-r-11">
+                                        <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100" data-tooltip="Add to Wishlist">
+                                            <i class="zmdi zmdi-favorite"></i>
+                                        </a>
+                                    </div>
+
+                                    <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Facebook">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+
+                                    <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Twitter">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+
+                                    <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Google Plus">
+                                        <i class="fa fa-google-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+    <!--===============================================================================================-->
+    <script src="~/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/select2/select2.min.js"></script>
+    <script>
+        $(".js-select2").each(function () {
+            $(this).select2({
+                minimumResultsForSearch: 20,
+                dropdownParent: $(this).next('.dropDownSelect2')
+            });
+        })
+    </script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/daterangepicker/moment.min.js"></script>
+    <script src="~/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/slick/slick.min.js"></script>
+    <script src="~/js/slick-custom.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/parallax100/parallax100.js"></script>
+    <script>
+        $('.parallax100').parallax100();
+    </script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
+    <script>
+        $('.gallery-lb').each(function () { // the containers for all your galleries
+            $(this).magnificPopup({
+                delegate: 'a', // the selector for gallery item
+                type: 'image',
+                gallery: {
+                    enabled: true
+                },
+                mainClass: 'mfp-fade'
+            });
+        });
+    </script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/isotope/isotope.pkgd.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/sweetalert/sweetalert.min.js"></script>
+    <script>
+        $('.js-addwish-b2').on('click', function (e) {
+            e.preventDefault();
+        });
+
+        $('.js-addwish-b2').each(function () {
+            var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
+            $(this).on('click', function () {
+                swal(nameProduct, "is added to wishlist !", "success");
+
+                $(this).addClass('js-addedwish-b2');
+                $(this).off('click');
+            });
+        });
+
+        $('.js-addwish-detail').each(function () {
+            var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
+
+            $(this).on('click', function () {
+                swal(nameProduct, "is added to wishlist !", "success");
+
+                $(this).addClass('js-addedwish-detail');
+                $(this).off('click');
+            });
+        });
+
+        /*---------------------------------------------*/
+
+        $('.js-addcart-detail').each(function () {
+            var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
+            $(this).on('click', function () {
+                swal(nameProduct, "is added to cart !", "success");
+            });
+        });
+
+    </script>
+    <!--===============================================================================================-->
+    <script src="~/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script>
+        $('.js-pscroll').each(function () {
+            $(this).css('position', 'relative');
+            $(this).css('overflow', 'hidden');
+            var ps = new PerfectScrollbar(this, {
+                wheelSpeed: 1,
+                scrollingThreshold: 1000,
+                wheelPropagation: false,
+            });
+
+            $(window).on('resize', function () {
+                ps.update();
+            })
+        });
+    </script>
+    <!--===============================================================================================-->
+    <script src="~/js/main.js"></script>
+
+    <script>
+        function getSearchParams(k) {
+            var p = {};
+            location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (s, k, v) { p[k] = v })
+            return k ? p[k] : p;
+        }
+        window.onload = function () {
+            if (getSearchParams("done") == "true") {
+                setTimeout("alert('شكرا لك سيتم التواصل معك  خلال 24 ساعة')", 1000);
+
+            }
+        }
+        $(window).load(function () {
+            debugger
+            function getSearchParams(k) {
+                var p = {};
+                location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (s, k, v) { p[k] = v })
+                return k ? p[k] : p;
+            }
+
+            $("#submit").on("click", function () {
+
+            });
+
+        });
+    </script>
+
+</body>
+</html>
+
+
+
